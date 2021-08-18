@@ -29,7 +29,6 @@ const getAllCustomers = async (request, reply) => {
     reply.code(400).send(error);
   }
   debug(`result : ${JSON.stringify(result)}`);
-  console.log(result.count);
 
   await connection.close();
 

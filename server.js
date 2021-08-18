@@ -1,8 +1,18 @@
 'use strict'
 
+const fs = require('fs')
+const path = require('path')
+const fastify = require('fastify')({
+    logger: false,
+    http2: true,
+    https: {
+		allowHTTP1: true, // fallback support for HTTP1
+		key: fs.readFileSync(path.join(__dirname, '.', 'https', 'api-key.pem')),
+		cert: fs.readFileSync(path.join(__dirname, '.', 'https', 'api-cert.pem'))
+    }
+})
+
 const fastify = require('fastify')()
-const odbc = require('odbc');
-const debug = require('debug')('server');
 const config = require('config');
 
 const SERVER_ADDRESS = config.get('server.host');
@@ -26,7 +36,7 @@ fastify.register(require('fastify-swagger'), {
             },
         },
         servers: [{
-            url: `http://${SERVER_ADDRESS}:${SERVER_PORT}`
+            url: `https://${SERVER_ADDRESS}:${SERVER_PORT}`
         }],
         consumes: ['application/json'],
         produces: ['application/json']
@@ -42,5 +52,5 @@ customerRoutes.forEach((route, index) => {
 
 fastify.listen(`${SERVER_PORT}`, '0.0.0.0', err => {
     if (err) throw err
-    console.log('listening')
+    console.log('%s listening at %s', SERVER_ADDRESS, SERVER_PORT);
 })
