@@ -1,27 +1,37 @@
 {
   "name": "api-with-fastify",
-  "version": "1.0.0",
-  "description": "Squelette d'API avec Fastify et documentation OpenAPI",
+  "version": "0.2.0",
+  "description": "Squelette d'API avec Fastify",
   "main": "server.js",
   "dependencies": {
-    "config": "^3.3.6",
-    "debug": "^4.3.2",
-    "fastify": "^3.20.1",
-    "fastify-swagger": "^4.8.4",
-    "fluent-json-schema": "^3.0.1",
-    "odbc": "^2.4.0"
+    "@fastify/auth": "^5.0.3",
+    "@fastify/autoload": "^6.3.1",
+    "@fastify/helmet": "^13.0.1",
+    "@fastify/jwt": "^9.1.0",
+    "@fastify/swagger": "^9.5.2",
+    "@fastify/swagger-ui": "^5.2.3",
+    "config": "^3.3.12",
+    "debug": "^4.4.0",
+    "fastify": "^5.2.1",
+    "odbc": "^2.4.9",
+    "xml2js": "^0.6.2"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
-  },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=developement DEBUG=server:* nodemon --inspect server.js",
     "start": "NODE_ENV=production node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.2.4",
+    "eslint-plugin-promise": "^7.2.1",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3"
+  },
   "nodemonConfig": {
     "restartable": "rs",
     "ignore": [

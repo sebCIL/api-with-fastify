@@ -1,8 +1,11 @@
 {
-    "server": {
-        "host": "MyIBMi",
-        "port": 8095,
-        "dsn": "DSN=*LOCAL;CCSID=1208;",
-        "bib": "MyBib"
-    }
+  "server": {
+    "host": "GIGCTEST",
+    "port": 8095,
+    "dsn": "DSN=*LOCAL;CCSID=1208;",
+    "schema": "GPTEST"
+  },
+  "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+  "jwt_option": { "expiresIn": "1h", "issuer": "https://cooperl.com" },
+  "version": "1.0.1"
 }

@@ -1,7 +1,7 @@
 # api-with-fastify
 Squelette d'API avec Fastify et documentation OpenAPI
 
-Cette api est basée sur [Fastify](https://www.fastify.io/), [fastify-swagger](https://www.npmjs.com/package/fastify-swagger), [ODBC](https://ibmi-oss-docs.readthedocs.io/).
+Cette api est basée sur [Fastify](https://www.fastify.io/), [Swagger](https://www.npmjs.com/package/fastify-swagger), [Swagger UI](https://www.npmjs.com/package/@fastify/swagger-ui),[ODBC](https://ibmi-oss-docs.readthedocs.io/).
 
 If you set exposeRoute to true the plugin will expose the documentation with the following APIs:
 
@@ -34,12 +34,12 @@ Copier la table **QIWS/QCUSTCDT** dans votre bibliothèque.
 
 Modifier la configuration dans le répertoire *config* :
 - port: Port découte en HTTP
-- port_secure: Port découte en HTTPS
+- portSecure: Port découte en HTTPS
 - schema: bibliothèque pour QCUSTCDT
 - secret: passphrase pour encoder/decoder JWT
 - jwt_option: Options pour signer le JWT
 
 Exécuter le projet
 ```
-$ npm start 
+$ npm run dev
 ```
