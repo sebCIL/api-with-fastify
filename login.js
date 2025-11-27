@@ -4,7 +4,7 @@ import config from "config";
 import { errorSchema, loginPostSchema } from "./schemas/index.js";
 
 const SERVER_DSN = config.get('server.dsn');
-const JWT_OPTIONS = config.get('jwt_option');
+const SCHEMA = config.get('schema');
 
 const log = debug('server:login');
 
@@ -65,7 +65,7 @@ async function login (fastify, options) {
      */
     // Connect to the local database
     const connection = await odbc.connect(`${SERVER_DSN}`);
-    const result = await connection.callProcedure(null, 'GPTEST', 'USRAUTH', [request.body.profil.toUpperCase(), request.body.password.toUpperCase(), '']);
+    const result = await connection.callProcedure(null, SCHEMA, 'USRAUTH', [request.body.profil.toUpperCase(), request.body.password.toUpperCase(), '']);
     
     log(`Login ${result.parameters[2] === '1' ? 'success': 'failed'}`);
     if(result.parameters[2] === '1') {

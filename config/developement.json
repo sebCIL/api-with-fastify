@@ -1,9 +1,9 @@
 {
   "server": {
-    "host": "GIGCTEST",
+    "host": "HOST",
     "port": 8095,
     "dsn": "DSN=*LOCAL;CCSID=1208;",
-    "schema": "GPTEST"
+    "schema": "SCHEMA"
   },
   "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
   "jwt_option": { "expiresIn": "1h", "issuer": "https://cooperl.com" },
